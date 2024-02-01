@@ -4,12 +4,17 @@ import 'package:boutique_app/utils/ColorPage.dart';
 class CardWidget extends StatefulWidget {
   final Function onPressed;
   final String text;
+  final String text1;
+  final IconData icon;
+
 
 
 
   CardWidget({
    required this.onPressed,
-   required this.text
+   required this.text,
+   required this.text1,
+    required this.icon,
 });
 
   @override
@@ -20,26 +25,24 @@ class _CardWidgetState extends State<CardWidget> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      margin: EdgeInsets.only(top: 50.0),
-      color: ColorPages.COLOR_PRINCIPAL,
-      width: 150,
+      width: 170,
       height: 120,
       child: GestureDetector(
+
         onTap: widget.onPressed as void Function()?,
         child: Card(
+          elevation: 0,
           color: ColorPages.COLOR_PRINCIPAL,
-          margin: EdgeInsets.only(top: 10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                color: ColorPages.COLOR_PRINCIPAL,
                 margin: EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: [
-                    Icon(Icons.home, color: ColorPages.COLOR_BLANCHE,size: 40.0,),
+                    Icon(widget.icon, color: ColorPages.COLOR_BLANCHE,size: 40.0,),
                     Text(widget.text,style: TextStyle(color: ColorPages.COLOR_BLANCHE,fontWeight: FontWeight.bold),),
-                    Text(widget.text,style: TextStyle(color: ColorPages.COLOR_BLANCHE,fontWeight: FontWeight.bold),)
+                    Text(widget.text1,style: TextStyle(color: ColorPages.COLOR_BLANCHE,fontWeight: FontWeight.bold),)
                   ],
                 ),
               )],
